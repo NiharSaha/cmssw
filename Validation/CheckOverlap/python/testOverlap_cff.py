@@ -49,14 +49,14 @@ process.load("IOMC.RandomEngine.IOMC_cff")
 process.source = cms.Source("EmptySource")
 
 process.generator = cms.EDProducer("FlatRandomEGunProducer",
-    PGunParameters = cms.PSet(
-        PartID = cms.vint32(14),
-        MinEta = cms.double(-3.5),
-        MaxEta = cms.double(3.5),
-        MinPhi = cms.double(-3.14159265359),
-        MaxPhi = cms.double(3.14159265359),
-        MinE   = cms.double(9.99),
-        MaxE   = cms.double(10.01)
+    PGunParameters = dict(
+        PartID = 14,
+        MinEta = -3.5,
+        MaxEta = 3.5,
+        MinPhi = -3.14159265359,
+        MaxPhi = 3.14159265359,
+        MinE   = 9.99,
+        MaxE   = 10.01
     ),
     AddAntiParticle = cms.bool(False),
     Verbosity       = cms.untracked.int32(0),
