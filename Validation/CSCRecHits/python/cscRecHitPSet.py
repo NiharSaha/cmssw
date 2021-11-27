@@ -1,5 +1,5 @@
 import FWCore.ParameterSet.Config as cms
-
+#This is practice!
 cscRecHitPSet = cms.PSet(
     cscRecHit = cms.PSet(
         verbose = cms.int32(0),
