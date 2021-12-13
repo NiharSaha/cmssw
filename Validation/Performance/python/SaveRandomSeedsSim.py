@@ -45,14 +45,14 @@ def customise(process):
                                                            ,'G4cout'
                                                            ,'G4cerr'
                                                            )
-    process.MessageLogger.cerr = cms.untracked.PSet(
-        noTimeStamps = cms.untracked.bool(True)
+    process.MessageLogger.cerr = dict(
+        noTimeStamps = True
         )
-    process.MessageLogger.G4msg =  cms.untracked.PSet(
-        noTimeStamps = cms.untracked.bool(True)
-        ,threshold = cms.untracked.string('INFO')
-        ,INFO = cms.untracked.PSet(limit = cms.untracked.int32(0))
-        ,G4cout = cms.untracked.PSet(limit = cms.untracked.int32(-1))
-        ,G4cerr = cms.untracked.PSet(limit = cms.untracked.int32(-1))
+    process.MessageLogger.G4msg =  dict(
+        noTimeStamps = True
+        ,threshold = 'INFO'
+        ,INFO = dict(limit = 0)
+        ,G4cout = dict(limit = -1)
+        ,G4cerr = dict(limit = -1)
         )
     return(process)
