@@ -19,11 +19,12 @@ from DQMOffline.Trigger.TopMonitor_cfi import hltTOPmonitoring
 # HLT_AK8PFHT900_TrimMass50_v*
 # HLT_AK8PFHT700_TrimR0p1PT0p03Mass50
 
-PFHT1050_Mjjmonitoring = hltMjjmonitoring.clone()
-PFHT1050_Mjjmonitoring.FolderName = cms.string('HLT/B2G/PFHT1050')
-PFHT1050_Mjjmonitoring.numGenericTriggerEventPSet.hltPaths = cms.vstring("HLT_PFHT1050_v*")
-PFHT1050_Mjjmonitoring.jets = cms.InputTag("ak8PFJetsPuppi")
-PFHT1050_Mjjmonitoring.jetSelection = cms.string("pt > 200 && eta < 2.4")
+PFHT1050_Mjjmonitoring = hltMjjmonitoring.clone(
+    FolderName = 'HLT/B2G/PFHT1050',
+    numGenericTriggerEventPSet = dict(hltPaths = "HLT_PFHT1050_v*"),
+    jets = "ak8PFJetsPuppi",
+    jetSelection = "pt > 200 && eta < 2.4"
+)
 
 PFHT1050_Softdropmonitoring = hltSoftdropmonitoring.clone()
 PFHT1050_Softdropmonitoring.FolderName = cms.string('HLT/B2G/PFHT1050')
