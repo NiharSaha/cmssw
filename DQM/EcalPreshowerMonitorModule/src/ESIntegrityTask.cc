@@ -26,8 +26,8 @@ ESIntegrityTask::ESIntegrityTask(const ParameterSet& ps) {
   prefixME_ = ps.getUntrackedParameter<string>("prefixME", "");
   lookup_ = ps.getUntrackedParameter<FileInPath>("LookupTable");
 
-  dccCollections_ = consumes<ESRawDataCollection>(ps.getParameter<InputTag>("ESDCCCollections"));
-  kchipCollections_ = consumes<ESLocalRawDataCollection>(ps.getParameter<InputTag>("ESKChipCollections"));
+  dccCollections_ = consumes<ESRawDataCollection>(ps.getUntrackedParameter<InputTag>("ESDCCCollections"));
+  kchipCollections_ = consumes<ESLocalRawDataCollection>(ps.getUntrackedParameter<InputTag>("ESKChipCollections"));
 
   doLumiAnalysis_ = ps.getParameter<bool>("DoLumiAnalysis");
 

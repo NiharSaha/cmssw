@@ -21,8 +21,8 @@ using namespace std;
 
 ESTrendTask::ESTrendTask(const ParameterSet& ps) {
   prefixME_ = ps.getUntrackedParameter<string>("prefixME", "EcalPreshower");
-  rechittoken_ = consumes<ESRecHitCollection>(ps.getParameter<InputTag>("RecHitLabel"));
-  dccCollections_ = consumes<ESRawDataCollection>(ps.getParameter<InputTag>("ESDCCCollections"));
+  rechittoken_ = consumes<ESRecHitCollection>(ps.getUntrackedParameter<InputTag>("RecHitLabel"));
+  dccCollections_ = consumes<ESRawDataCollection>(ps.getUntrackedParameter<InputTag>("ESDCCCollections"));
 
   for (int i = 0; i < 2; ++i)
     for (int j = 0; j < 2; ++j) {

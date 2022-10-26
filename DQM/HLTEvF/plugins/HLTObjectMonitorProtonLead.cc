@@ -323,8 +323,8 @@ HLTObjectMonitorProtonLead::HLTObjectMonitorProtonLead(const edm::ParameterSet& 
   plotMap.clear();
 
   //set Token(s)
-  triggerResultsToken_ = consumes<edm::TriggerResults>(iConfig.getParameter<edm::InputTag>("triggerResults"));
-  aodTriggerToken_ = consumes<trigger::TriggerEvent>(iConfig.getParameter<edm::InputTag>("triggerEvent"));
+  triggerResultsToken_ = consumes<edm::TriggerResults>(iConfig.getUntrackedParameter<edm::InputTag>("triggerResults"));
+  aodTriggerToken_ = consumes<trigger::TriggerEvent>(iConfig.getUntrackedParameter<edm::InputTag>("triggerEvent"));
 }
 
 HLTObjectMonitorProtonLead::~HLTObjectMonitorProtonLead() {

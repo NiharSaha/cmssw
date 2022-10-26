@@ -64,7 +64,7 @@ private:
 
 PSMonitor::PSMonitor(const edm::ParameterSet& config)
     : folderName_(config.getParameter<std::string>("FolderName")),
-      ugtBXToken_(consumes<GlobalAlgBlkBxCollection>(config.getParameter<edm::InputTag>("ugtBXInputTag"))) {
+      ugtBXToken_(consumes<GlobalAlgBlkBxCollection>(config.getUntrackedParameter<edm::InputTag>("ugtBXInputTag"))) {
   edm::ParameterSet histoPSet = config.getParameter<edm::ParameterSet>("histoPSet");
   edm::ParameterSet psColumnPSet = histoPSet.getParameter<edm::ParameterSet>("psColumnPSet");
   edm::ParameterSet lsPSet = histoPSet.getParameter<edm::ParameterSet>("lsPSet");

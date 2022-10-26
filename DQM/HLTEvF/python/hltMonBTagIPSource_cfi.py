@@ -1,7 +1,7 @@
 import FWCore.ParameterSet.Config as cms
 
 hltMonBTagIPSource = cms.EDAnalyzer('HLTMonBTagIPSource',
-    triggerResults  = cms.InputTag('TriggerResults', '', 'HLT'),
+    triggerResults  = cms.untracked.InputTag('TriggerResults', '', 'HLT'),
     monitorName     = cms.string('HLT/HLTMonBJet'),
     processName     = cms.string('HLT'),
     pathName        = cms.string('HLT_BTagIP_Jet50U'),

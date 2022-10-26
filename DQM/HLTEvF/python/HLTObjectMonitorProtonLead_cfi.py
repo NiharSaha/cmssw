@@ -42,8 +42,8 @@ l3muon12_moduleName = "hltL3fL1sSingleMu7BptxANDL1f0L2f0L3Filtered12"
 from DQMServices.Core.DQMEDAnalyzer import DQMEDAnalyzer
 hltObjectMonitorProtonLead = DQMEDAnalyzer('HLTObjectMonitorProtonLead',
     processName         = cms.string("HLT"),
-    triggerResults      = cms.InputTag("TriggerResults", "", "HLT"),
-    triggerEvent        = cms.InputTag("hltTriggerSummaryAOD", "", "HLT"),
+    triggerResults      = cms.untracked.InputTag("TriggerResults", "", "HLT"),
+    triggerEvent        = cms.untracked.InputTag("hltTriggerSummaryAOD", "", "HLT"),
     caloAK4JetPt = cms.PSet(
         pathName = cms.string(caloJet_pathName),
         moduleName = cms.string(caloJet_moduleName),

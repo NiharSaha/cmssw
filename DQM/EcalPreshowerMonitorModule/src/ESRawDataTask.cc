@@ -28,8 +28,8 @@ using namespace std;
 ESRawDataTask::ESRawDataTask(const ParameterSet& ps) {
   prefixME_ = ps.getUntrackedParameter<string>("prefixME", "");
 
-  FEDRawDataCollection_ = consumes<FEDRawDataCollection>(ps.getParameter<InputTag>("FEDRawDataCollection"));
-  dccCollections_ = consumes<ESRawDataCollection>(ps.getParameter<InputTag>("ESDCCCollections"));
+  FEDRawDataCollection_ = consumes<FEDRawDataCollection>(ps.getUntrackedParameter<InputTag>("FEDRawDataCollection"));
+  dccCollections_ = consumes<ESRawDataCollection>(ps.getUntrackedParameter<InputTag>("ESDCCCollections"));
 
   ievt_ = 0;
 }

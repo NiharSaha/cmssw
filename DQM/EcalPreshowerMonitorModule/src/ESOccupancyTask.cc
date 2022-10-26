@@ -22,7 +22,7 @@ using namespace edm;
 using namespace std;
 
 ESOccupancyTask::ESOccupancyTask(const edm::ParameterSet& ps) {
-  rechittoken_ = consumes<ESRecHitCollection>(ps.getParameter<InputTag>("RecHitLabel"));
+  rechittoken_ = consumes<ESRecHitCollection>(ps.getUntrackedParameter<InputTag>("RecHitLabel"));
   prefixME_ = ps.getUntrackedParameter<string>("prefixME", "EcalPreshower");
 
   eCount_ = 0;
