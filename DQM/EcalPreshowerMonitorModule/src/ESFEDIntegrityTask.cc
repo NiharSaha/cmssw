@@ -27,8 +27,9 @@ ESFEDIntegrityTask::ESFEDIntegrityTask(const ParameterSet& ps) {
   fedDirName_ = ps.getUntrackedParameter<string>("FEDDirName", "FEDIntegrity");
   debug_ = ps.getUntrackedParameter<bool>("debug", false);
 
-  dccCollections_ = consumes<ESRawDataCollection>(ps.getParameter<InputTag>("ESDCCCollections"));
-  FEDRawDataCollection_ = consumes<FEDRawDataCollection>(ps.getParameter<edm::InputTag>("FEDRawDataCollection"));
+  dccCollections_ = consumes<ESRawDataCollection>(ps.getUntrackedParameter<InputTag>("ESDCCCollections"));
+  FEDRawDataCollection_ =
+      consumes<FEDRawDataCollection>(ps.getUntrackedParameter<edm::InputTag>("FEDRawDataCollection"));
 
   meESFedsEntries_ = nullptr;
   meESFedsFatal_ = nullptr;

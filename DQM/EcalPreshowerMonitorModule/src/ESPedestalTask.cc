@@ -23,7 +23,7 @@ using namespace edm;
 using namespace std;
 
 ESPedestalTask::ESPedestalTask(const edm::ParameterSet& ps) {
-  digitoken_ = consumes<ESDigiCollection>(ps.getParameter<InputTag>("DigiLabel"));
+  digitoken_ = consumes<ESDigiCollection>(ps.getUntrackedParameter<InputTag>("DigiLabel"));
   lookup_ = ps.getUntrackedParameter<FileInPath>("LookupTable");
   outputFile_ = ps.getUntrackedParameter<string>("OutputFile", "");
   prefixME_ = ps.getUntrackedParameter<string>("prefixME", "EcalPreshower");

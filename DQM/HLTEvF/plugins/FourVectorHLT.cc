@@ -50,10 +50,11 @@ FourVectorHLT::FourVectorHLT(const edm::ParameterSet& iConfig) {
                                    "list will be ignored.";
     hltPaths_.clear();
   }
-  triggerSummaryLabel_ = iConfig.getParameter<edm::InputTag>("triggerSummaryLabel");
+  triggerSummaryLabel_ = iConfig.getUntrackedParameter<edm::InputTag>("triggerSummaryLabel");
 
   //set Token(-s)
-  triggerSummaryToken_ = consumes<trigger::TriggerEvent>(iConfig.getParameter<edm::InputTag>("triggerSummaryLabel"));
+  triggerSummaryToken_ =
+      consumes<trigger::TriggerEvent>(iConfig.getUntrackedParameter<edm::InputTag>("triggerSummaryLabel"));
 }
 
 FourVectorHLT::~FourVectorHLT() {

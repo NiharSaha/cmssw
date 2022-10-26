@@ -37,9 +37,9 @@ private:
 };
 
 TrigObjTnPSource::TrigObjTnPSource(const edm::ParameterSet& config)
-    : trigEvtToken_(consumes<trigger::TriggerEvent>(config.getParameter<edm::InputTag>("triggerEvent"))),
-      trigResultsToken_(consumes<edm::TriggerResults>(config.getParameter<edm::InputTag>("triggerResults"))),
-      hltProcess_(config.getParameter<edm::InputTag>("triggerResults").process()),
+    : trigEvtToken_(consumes<trigger::TriggerEvent>(config.getUntrackedParameter<edm::InputTag>("triggerEvent"))),
+      trigResultsToken_(consumes<edm::TriggerResults>(config.getUntrackedParameter<edm::InputTag>("triggerResults"))),
+      hltProcess_(config.getUntrackedParameter<edm::InputTag>("triggerResults").process()),
       histCollConfigs_(config.getParameter<std::vector<edm::ParameterSet>>("histColls")) {}
 
 void TrigObjTnPSource::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {

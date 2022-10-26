@@ -47,8 +47,8 @@ _etaHist = cms.PSet(
 
 from DQMServices.Core.DQMEDAnalyzer import DQMEDAnalyzer
 trigObjTnPSource = DQMEDAnalyzer('TrigObjTnPSource',
-  triggerEvent = cms.InputTag('hltTriggerSummaryAOD','','HLT'),
-  triggerResults = cms.InputTag('TriggerResults','','HLT'),
+  triggerEvent = cms.untracked.InputTag('hltTriggerSummaryAOD','','HLT'),
+  triggerResults = cms.untracked.InputTag('TriggerResults','','HLT'),
   histColls = cms.VPSet(cms.PSet(
     tagCuts = cms.VPSet(_ecalBarrelEtaCut),
     probeCuts = cms.VPSet(_ecalEtaCut),

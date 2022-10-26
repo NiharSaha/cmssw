@@ -259,15 +259,18 @@ HLTObjectsMonitor::HLTObjectsMonitor(const edm::ParameterSet& iConfig)
       processName_(iConfig.getParameter<std::string>("processName")),
       plotPSETS_(iConfig.getParameter<std::vector<edm::ParameterSet>>("plots")),
       debug_(iConfig.getUntrackedParameter<bool>("debug", false)),
-      triggerResultsToken_(consumes<edm::TriggerResults>(iConfig.getParameter<edm::InputTag>("TriggerResults"))),
-      triggerEventToken_(consumes<trigger::TriggerEvent>(iConfig.getParameter<edm::InputTag>("TriggerSummary"))),
-      beamSpot_(iConfig.getParameter<edm::InputTag>("beamspot")),
+      triggerResultsToken_(
+          consumes<edm::TriggerResults>(iConfig.getUntrackedParameter<edm::InputTag>("TriggerResults"))),
+      triggerEventToken_(
+          consumes<trigger::TriggerEvent>(iConfig.getUntrackedParameter<edm::InputTag>("TriggerSummary"))),
+      beamSpot_(iConfig.getUntrackedParameter<edm::InputTag>("beamspot")),
       beamSpotToken_(consumes<reco::BeamSpot>(beamSpot_)),
-      caloJetBTagsToken_(consumes<reco::JetTagCollection>(iConfig.getParameter<edm::InputTag>("caloJetBTags"))),
-      pfJetBTagsToken_(consumes<reco::JetTagCollection>(iConfig.getParameter<edm::InputTag>("pfJetBTags"))),
-      muCandidates_(iConfig.getParameter<edm::InputTag>("muCandidates")),
+      caloJetBTagsToken_(
+          consumes<reco::JetTagCollection>(iConfig.getUntrackedParameter<edm::InputTag>("caloJetBTags"))),
+      pfJetBTagsToken_(consumes<reco::JetTagCollection>(iConfig.getUntrackedParameter<edm::InputTag>("pfJetBTags"))),
+      muCandidates_(iConfig.getUntrackedParameter<edm::InputTag>("muCandidates")),
       muCandidatesToken_(consumes<std::vector<reco::RecoChargedCandidate>>(muCandidates_)),
-      eleCandidates_(iConfig.getParameter<edm::InputTag>("eleCandidates")),
+      eleCandidates_(iConfig.getUntrackedParameter<edm::InputTag>("eleCandidates")),
       eleCandidatesToken_(consumes<std::vector<reco::RecoChargedCandidate>>(eleCandidates_)) {
   getPSet();
 

@@ -84,7 +84,7 @@ private:
 LumiMonitor::LumiMonitor(const edm::ParameterSet& config)
     : trkTopoToken_{esConsumes()},
       folderName_(config.getParameter<std::string>("FolderName")),
-      lumiScalersToken_(consumes<LumiScalersCollection>(config.getParameter<edm::InputTag>("scalers"))),
+      lumiScalersToken_(consumes<LumiScalersCollection>(config.getUntrackedParameter<edm::InputTag>("scalers"))),
       lumi_binning_(getHistoPSet(
           config.getParameter<edm::ParameterSet>("histoPSet").getParameter<edm::ParameterSet>("lumiPSet"))),
       pu_binning_(
@@ -93,7 +93,7 @@ LumiMonitor::LumiMonitor(const edm::ParameterSet& config)
           config.getParameter<edm::ParameterSet>("histoPSet").getParameter<edm::ParameterSet>("lsPSet"))),
       doPixelLumi_(config.getParameter<bool>("doPixelLumi")),
       pixelClustersToken_(doPixelLumi_ ? consumes<edmNew::DetSetVector<SiPixelCluster>>(
-                                             config.getParameter<edm::InputTag>("pixelClusters"))
+                                             config.getUntrackedParameter<edm::InputTag>("pixelClusters"))
                                        : edm::EDGetTokenT<edmNew::DetSetVector<SiPixelCluster>>()),
       useBPixLayer1_(doPixelLumi_ ? config.getParameter<bool>("useBPixLayer1") : false),
       minNumberOfPixelsPerCluster_(doPixelLumi_ ? config.getParameter<int>("minNumberOfPixelsPerCluster") : -1),

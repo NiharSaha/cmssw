@@ -23,7 +23,7 @@ ESDcsInfoTask::ESDcsInfoTask(const ParameterSet& ps) {
 
   mergeRuns_ = ps.getUntrackedParameter<bool>("mergeRuns", false);
 
-  dcsStatustoken_ = consumes<DcsStatusCollection>(ps.getParameter<InputTag>("DcsStatusLabel"));
+  dcsStatustoken_ = consumes<DcsStatusCollection>(ps.getUntrackedParameter<InputTag>("DcsStatusLabel"));
 
   meESDcsFraction_ = nullptr;
   meESDcsActiveMap_ = nullptr;

@@ -6,7 +6,7 @@ hltResults = cms.EDAnalyzer("FourVectorHLT",
     ptMin = cms.untracked.double(0.0),
     filters = cms.VPSet(),
     # data best guess
-    triggerSummaryLabel = cms.InputTag("hltTriggerSummaryAOD","","HLT")
+    triggerSummaryLabel = cms.untracked.InputTag("hltTriggerSummaryAOD","","HLT")
 )
 
 
